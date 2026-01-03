@@ -8,6 +8,6 @@ intro_image_hide_on_mobile: true
 show_call_box: true
 ---
 
-# Serif - A Jekyll Business Theme.
+# Future Doctors of America
 
-Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+Join us in exploring the medical field through hands-on learning experiences, leadership experiences, dissections, internships, guest speakers, and more.
