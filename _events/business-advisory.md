@@ -1,14 +1,15 @@
 ---
-title: "Mergers"
-date: 2019-02-28T15:15:34+10:00
-weight: 3
+title: "Business Advisory"
+date: 2018-12-28T15:14:39+10:00
+weight: 4
 ---
 
-Lorem markdownum aequalis strigis. Saetigeri iubeas, vultu huic alvum nondum
-de obside ut laniavit arbor palmis, cum quin. Rupes vetat videndo, armigerae
-crimen habet Priamum nec.
+Business advisory is the final tier of the accounting pyramid.
+<!--more-->
 
-![Accounting Services](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg)
+Business advisory involves reporting on performance as well as advising on strategic plans, risk assessment, and succession plans.
+
+![Events](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg)
 
 # Objectives
 

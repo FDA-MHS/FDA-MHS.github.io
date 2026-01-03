@@ -10,11 +10,11 @@ media_folder: "images"
 collections:
 
   # ---------------------------
-  # SERVICES (collection pages)
+  # Events (collection pages)
   # ---------------------------
-  - name: "services"
-    label: "Services"
-    folder: "_services"
+  - name: "events"
+    label: "Events"
+    folder: "_events"
     create: true
     delete: true
     slug: "{{slug}}"
@@ -82,6 +82,7 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Layout", name: "layout", widget: "hidden", default: "contact" }
           - { label: "Description", name: "description", widget: "string" }
+          - { label: "Content", name: "body", widget: "markdown" }
 
   # ---------------------------
   # DATA FILES
