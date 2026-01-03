@@ -49,3 +49,6 @@ exclude:
   - LICENSE.md
   - LICENSE
   - README.md
+
+url: "https://fda-mhs.github.io" 
+remote_theme: zerostaticthemes/jekyll-serif-theme
