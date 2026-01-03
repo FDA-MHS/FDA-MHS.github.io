@@ -82,3 +82,48 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Layout", name: "layout", widget: "hidden", default: "contact" }
           - { label: "Description", name: "description", widget: "string" }
+
+  # ---------------------------
+  # DATA FILES
+  # ---------------------------
+  - name: "data"
+    label: "Site Data"
+    files:
+
+      - file: "_data/contact.yml"
+        label: "Contact Information"
+        name: "contact_data"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Contact Button Link", name: "contact_button_link", widget: "string" }
+
+      - file: "_data/features.json"
+        label: "Features"
+        name: "features"
+        fields:
+          - label: "Features List"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "url", widget: "image" }
+                  - { label: "Width", name: "width", widget: "number", default: 80 }
+                  - { label: "Height", name: "height", widget: "number", default: 80 }
+
+      - file: "_data/socials.json"
+        label: "Social Links"
+        name: "socials"
+        fields:
+          - label: "Social Media Links"
+            name: "socials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Icon Image", name: "image", widget: "image" }
