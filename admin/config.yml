@@ -97,14 +97,32 @@ collections:
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Phone", name: "phone", widget: "string" }
 
-      - file: "_data/features.json"
+      - file: "_data/features.yml"
         label: "Features"
         name: "features"
         fields:
-          - { label: "Features JSON", name: "body", widget: "code", default_language: "json", output_code_only: true }
+          - label: "Features List"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "url", widget: "image" }
+                  - { label: "Width", name: "width", widget: "number", default: 80 }
+                  - { label: "Height", name: "height", widget: "number", default: 80 }
 
-      - file: "_data/socials.json"
+      - file: "_data/social.yml"
         label: "Social Links"
         name: "socials"
         fields:
-          - { label: "Socials JSON", name: "body", widget: "code", default_language: "json", output_code_only: true }
+          - label: "Social Media Links"
+            name: "socials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Icon Image", name: "image", widget: "image" }
