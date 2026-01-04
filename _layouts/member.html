@@ -19,7 +19,9 @@ bodyClass: "page-member"
         {% if page.email %}
         <p class="member-email"><a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
         {% endif %}
+        {% if content %}
         <div class="content">{{content}}</div>
+        {% endif %}
       </div>
     </div>
   </div>

@@ -46,6 +46,22 @@ bodyClass: "page-home"
   </div>
 </div>
 
+{% if site.data.collage.photos %}
+<div class="strip">
+  <div class="container pt-6 pb-6">
+    <div class="row">
+      {% for photo in site.data.collage.photos %}
+      <div class="col-6 col-md-3 mb-3">
+        <div class="collage-item">
+          <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}" class="img-fluid" />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
 {% if site.data.features.features %}
 <div class="strip strip-grey">
   <div class="container pt-6 pb-6 pt-md-10 pb-md-10">

@@ -6,4 +6,3 @@ promoted: true
 email: Stewartw@fccps.org
 weight: 1
 ---
-sponsor doin' sponsor things

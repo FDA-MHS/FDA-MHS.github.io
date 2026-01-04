@@ -20,7 +20,7 @@ This year, our club has grown exponentially to 50 members. To expand the club, w
 
 ![](/images/club_meeting.jpg)
 
-\## Club Symbols
+## Club Symbols
 
 Our club symbol is the primary medical symbol, the caduceus, based on the Hermetic astrological principles of using the planets and stars to heal the sick.
 

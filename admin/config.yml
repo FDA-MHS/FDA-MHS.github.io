@@ -35,10 +35,11 @@ collections:
       - { label: "Name", name: "title", widget: "string" }
       - { label: "Profile Image", name: "image", widget: "image", required: false }
       - { label: "Job Title", name: "jobtitle", widget: "string", required: false }
-      - { label: "Promoted", name: "promoted", widget: "boolean", required: false }
+      - { label: "Leader", name: "promoted", widget: "boolean", required: false }
+      - { label: "Founding Member", name: "founding", widget: "boolean", required: false }
       - { label: "Email", name: "email", widget: "string", required: false }
       - { label: "Order", name: "weight", widget: "number", required: false }
-      - { label: "Bio", name: "body", widget: "markdown" }
+      - { label: "Bio", name: "body", widget: "markdown", required: false }
 
   - name: "pages"
     label: "Pages"
@@ -114,6 +115,17 @@ collections:
                   - { label: "Image URL", name: "url", widget: "image" }
                   - { label: "Width", name: "width", widget: "number", default: 80 }
                   - { label: "Height", name: "height", widget: "number", default: 80 }
+
+      - file: "_data/collage.yml"
+        label: "Photo Collage"
+        name: "collage"
+        fields:
+          - label: "Collage Photos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
 
       - file: "_data/social.yml"
         label: "Social Links"

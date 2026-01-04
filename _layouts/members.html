@@ -19,11 +19,12 @@ bodyClass: "page-members"
 </div>
 
 <div class="container pt-6 pb-6">
+    {% assign promoted_with_weight = site.members | where: "promoted", true | where_exp: "member", "member.weight" | sort: "weight" %}
+    {% assign promoted_without_weight = site.members | where: "promoted", true | where_exp: "member", "member.weight == nil" %}
+    {% assign all_promoted = promoted_with_weight | concat: promoted_without_weight %}
+    
+    {% if all_promoted.size > 0 %}
     <div class="row">
-        {% assign promoted_with_weight = site.members | where: "promoted", true | where_exp: "member", "member.weight" | sort: "weight" %}
-        {% assign promoted_without_weight = site.members | where: "promoted", true | where_exp: "member", "member.weight == nil" %}
-        {% assign all_promoted = promoted_with_weight | concat: promoted_without_weight %}
-        
         {% for member in all_promoted %}
         <div class="col-12 col-md-6 mb-2">
             <div class="member member-summary member-summary-large">
@@ -39,17 +40,48 @@ bodyClass: "page-members"
                     <a href="mailto:{{ member.email }}">{{ member.email }}</a>
                     {% endif %}
                 </div>
+                {% if member.excerpt %}
                 <div class="member-content">{{ member.excerpt | truncate: 120 }}</div>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
     </div>
-    <div class="row pt-6 pb-6">
-        {% assign members_with_weight = site.members | where: "promoted", empty | where_exp: "member", "member.weight" | sort: "weight" %}
-        {% assign members_without_weight = site.members | where: "promoted", empty | where_exp: "member", "member.weight == nil" %}
-        {% assign all_members = members_with_weight | concat: members_without_weight %}
-        
-        {% for member in all_members %}
+    {% endif %}
+    
+    {% assign founding_with_weight = site.members | where: "founding", true | where: "promoted", empty | where_exp: "member", "member.weight" | sort: "weight" %}
+    {% assign founding_without_weight = site.members | where: "founding", true | where: "promoted", empty | where_exp: "member", "member.weight == nil" %}
+    {% assign all_founding = founding_with_weight | concat: founding_without_weight %}
+    
+    {% if all_founding.size > 0 %}
+    <h2 class="mt-6 mb-4">Founding Members</h2>
+    <div class="row">
+        {% for member in all_founding %}
+        <div class="col-12 col-md-4 mb-3">
+            <div class="member member-summary member-summary-founding">
+                {% if member.image %}
+                <div class="member-image">
+                    <img width="60" height="60" alt="{{ member.title }}" class="img-fluid mb-2" src="{{ member.image | relative_url }}" />
+                </div>
+                {% endif %}
+                <div class="member-meta">
+                    <h2 class="member-name"><a href="{{ member.url | relative_url }}">{{ member.title }}</a></h2>
+                    <p class="member-description">{{ member.jobtitle }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    {% assign regular_with_weight = site.members | where: "promoted", empty | where: "founding", empty | where_exp: "member", "member.weight" | sort: "weight" %}
+    {% assign regular_without_weight = site.members | where: "promoted", empty | where: "founding", empty | where_exp: "member", "member.weight == nil" %}
+    {% assign all_regular = regular_with_weight | concat: regular_without_weight %}
+    
+    {% if all_regular.size > 0 %}
+    <h2 class="mt-6 mb-4">Members</h2>
+    <div class="row">
+        {% for member in all_regular %}
         <div class="col-12 col-md-4 mb-3">
             <div class="member member-summary">
                 {% if member.image %}
@@ -65,4 +97,5 @@ bodyClass: "page-members"
         </div>
         {% endfor %}
     </div>
+    {% endif %}
 </div>
