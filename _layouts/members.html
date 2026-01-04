@@ -19,8 +19,20 @@ bodyClass: "page-members"
 </div>
 
 <div class="container pt-6 pb-6">
-    {% assign promoted_with_weight = site.members | where: "promoted", true | where_exp: "member", "member.weight" | sort: "weight" %}
-    {% assign promoted_without_weight = site.members | where: "promoted", true | where_exp: "member", "member.weight == nil" %}
+    {% assign promoted_with_weight = "" | split: "" %}
+    {% assign promoted_without_weight = "" | split: "" %}
+    
+    {% for member in site.members %}
+        {% if member.promoted %}
+            {% if member.weight %}
+                {% assign promoted_with_weight = promoted_with_weight | push: member %}
+            {% else %}
+                {% assign promoted_without_weight = promoted_without_weight | push: member %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    
+    {% assign promoted_with_weight = promoted_with_weight | sort: "weight" %}
     {% assign all_promoted = promoted_with_weight | concat: promoted_without_weight %}
     
     {% if all_promoted.size > 0 %}
@@ -49,8 +61,20 @@ bodyClass: "page-members"
     </div>
     {% endif %}
     
-    {% assign founding_with_weight = site.members | where: "founding", true | where: "promoted", empty | where_exp: "member", "member.weight" | sort: "weight" %}
-    {% assign founding_without_weight = site.members | where: "founding", true | where: "promoted", empty | where_exp: "member", "member.weight == nil" %}
+    {% assign founding_with_weight = "" | split: "" %}
+    {% assign founding_without_weight = "" | split: "" %}
+    
+    {% for member in site.members %}
+        {% if member.founding and member.promoted != true %}
+            {% if member.weight %}
+                {% assign founding_with_weight = founding_with_weight | push: member %}
+            {% else %}
+                {% assign founding_without_weight = founding_without_weight | push: member %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    
+    {% assign founding_with_weight = founding_with_weight | sort: "weight" %}
     {% assign all_founding = founding_with_weight | concat: founding_without_weight %}
     
     {% if all_founding.size > 0 %}
@@ -61,7 +85,7 @@ bodyClass: "page-members"
             <div class="member member-summary member-summary-founding">
                 {% if member.image %}
                 <div class="member-image">
-                    <img width="60" height="60" alt="{{ member.title }}" class="img-fluid mb-2" src="{{ member.image | relative_url }}" />
+                    <img width="70" height="70" alt="{{ member.title }}" class="img-fluid mb-2" src="{{ member.image | relative_url }}" />
                 </div>
                 {% endif %}
                 <div class="member-meta">
@@ -74,8 +98,20 @@ bodyClass: "page-members"
     </div>
     {% endif %}
     
-    {% assign regular_with_weight = site.members | where: "promoted", empty | where: "founding", empty | where_exp: "member", "member.weight" | sort: "weight" %}
-    {% assign regular_without_weight = site.members | where: "promoted", empty | where: "founding", empty | where_exp: "member", "member.weight == nil" %}
+    {% assign regular_with_weight = "" | split: "" %}
+    {% assign regular_without_weight = "" | split: "" %}
+    
+    {% for member in site.members %}
+        {% if member.promoted != true and member.founding != true %}
+            {% if member.weight %}
+                {% assign regular_with_weight = regular_with_weight | push: member %}
+            {% else %}
+                {% assign regular_without_weight = regular_without_weight | push: member %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    
+    {% assign regular_with_weight = regular_with_weight | sort: "weight" %}
     {% assign all_regular = regular_with_weight | concat: regular_without_weight %}
     
     {% if all_regular.size > 0 %}
