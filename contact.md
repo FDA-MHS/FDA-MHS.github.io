@@ -15,8 +15,6 @@ The Future Doctors of America Club is located on the fourth floor in room number
 
 ![](/images/room.jpg)
 
-
-
 # Contact Information
 
 Sponsor: Mr. William Stewart
@@ -27,6 +25,4 @@ President: Anna Gray
 
 [ag52412@schools.fccps.org](mailto:ag52412@schools.fccps.org)
 
-Vice President: Julia Henrickson
-
-[jh27004@student.fccps.org](mailto:jh27004@student.fccps.org)
+[](mailto:jh27004@student.fccps.org)
