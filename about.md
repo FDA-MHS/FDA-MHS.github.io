@@ -25,3 +25,5 @@ This year, our club has grown exponentially to 50 members. To expand the club, w
 Our club symbol is the primary medical symbol, the caduceus, based on the Hermetic astrological principles of using the planets and stars to heal the sick.
 
 Our club mascot is a dragon named "Lavendar." Lavender is used medicinally for calming anxiety, improving mood, and promoting better sleep. It also offers potential anti-inflammatory and antioxidant benefits, supporting skin health and wound healing, making it common use in hospitals for support during stressful events.
+
+![](/images/club_logo.png)
