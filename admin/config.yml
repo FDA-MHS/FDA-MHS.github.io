@@ -81,6 +81,7 @@ collections:
       - file: "members.md"
         label: "Members Page"
         name: "members"
+        fields:
           - { label: "Webpage Title", name: "title", widget: "string" }
           - { label: "Title", name: "description", widget: "text" }
           - { label: "Intro Image", name: "intro_image", widget: "image", required: false }
@@ -89,6 +90,7 @@ collections:
       - file: "about.md"
         label: "About Page"
         name: "about"
+        fields:
           - { label: "Webpage Title", name: "title", widget: "string" }
           - { label: "Title", name: "description", widget: "text" }
           - { label: "Content", name: "body", widget: "markdown" }
