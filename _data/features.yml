@@ -1,19 +1,28 @@
 features:
-  - title: "Free Consultation"
-    description: "New clients receive an obligation free consultation."
+  - title: Learning About Medicine
+    description: Students learn about topics of interest in medicine then present
+      what they've learned to the class.
     image:
-      url: "images/noun_branding_1885335.svg"
+      url: /images/medicine.jpg
       width: 80
       height: 80
-  - title: "Certified Accountants"
-    description: "All members are certified accountants."
+  - title: Studying the Medical Career
+    description: Members learn about the process of getting into and experiencing
+      medical school.
     image:
-      url: "images/noun_The Process_1885341.svg"
+      url: /images/career.jpg
       width: 80
       height: 80
-  - title: "Tax Compliance"
-    description: "We stay up to date on the latest changes to the tax code."
+  - title: Real-World Experience
+    description: Students are encouraged to shadow and intern under medical professionals.
     image:
-      url: "images/noun_3d modeling_1885342.svg"
+      url: /images/doctor.jpg
       width: 80
       height: 80
+  - image:
+      width: 80
+      height: 80
+      url: /images/leadership.jpg
+    title: Leadership Experience
+    description: "Inspire students to learn the importance and skill set needed as
+      leaders in the medical field. "
