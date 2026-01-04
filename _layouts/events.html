@@ -20,13 +20,13 @@ bodyClass: "page-events"
 
 <div class="container pt-6 pb-6">
   {% assign now = 'now' | date: '%s' %}
-  {% assign future_events = site.events | where_exp: "event", "event.date" | sort: 'date' | reverse %}
-  {% assign past_events = site.events | where_exp: "event", "event.date" | sort: 'date' | reverse %}
+  {% assign events_with_date = site.events | where_exp: "event", "event.date" | sort: 'date' | reverse %}
+  {% assign events_without_date = site.events | where_exp: "event", "event.date == nil" %}
   
   {% assign filtered_future = "" | split: "" %}
   {% assign filtered_past = "" | split: "" %}
   
-  {% for event in future_events %}
+  {% for event in events_with_date %}
     {% assign event_date = event.date | date: '%s' %}
     {% if event_date >= now %}
       {% assign filtered_future = filtered_future | push: event %}
@@ -35,12 +35,44 @@ bodyClass: "page-events"
     {% endif %}
   {% endfor %}
   
+  {% if events_without_date.size > 0 %}
+  <h2 class="mb-4">Featured Events</h2>
+  <div class="row mb-5">
+    {% for event in events_without_date %}
+    <div class="col-12 col-md-6 mb-3">
+      <div class="event event-summary">
+        {% if event.image %}
+        <div class="event-image">
+          <a href="{{ event.url | relative_url }}">
+            <img alt="{{ event.title }}" class="img-fluid mb-3" src="{{ event.image | relative_url }}" />
+          </a>
+        </div>
+        {% endif %}
+        <div class="event-content">
+          <h2 class="event-title">
+            <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
+          </h2>
+          <p>{{ event.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  
   {% if filtered_future.size > 0 %}
   <h2 class="mb-4">Upcoming Events</h2>
   <div class="row mb-5">
     {% for event in filtered_future %}
     <div class="col-12 col-md-6 mb-3">
       <div class="event event-summary">
+        {% if event.image %}
+        <div class="event-image">
+          <a href="{{ event.url | relative_url }}">
+            <img alt="{{ event.title }}" class="img-fluid mb-3" src="{{ event.image | relative_url }}" />
+          </a>
+        </div>
+        {% endif %}
         <div class="event-content">
           <h2 class="event-title">
             <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
@@ -62,6 +94,13 @@ bodyClass: "page-events"
     {% for event in filtered_past %}
     <div class="col-12 col-md-6 mb-3">
       <div class="event event-summary">
+        {% if event.image %}
+        <div class="event-image">
+          <a href="{{ event.url | relative_url }}">
+            <img alt="{{ event.title }}" class="img-fluid mb-3" src="{{ event.image | relative_url }}" />
+          </a>
+        </div>
+        {% endif %}
         <div class="event-content">
           <h2 class="event-title">
             <a href="{{ event.url | relative_url }}">{{ event.title }}</a>

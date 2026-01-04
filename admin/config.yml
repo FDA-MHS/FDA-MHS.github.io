@@ -19,7 +19,8 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date", name: "date", widget: "datetime", required: false }
+      - { label: "Event Image", name: "image", widget: "image", required: false }
       - { label: "Content", name: "body", widget: "markdown" }
 
   - name: "members"

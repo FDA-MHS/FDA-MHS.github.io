@@ -7,7 +7,15 @@ bodyClass: "page-event"
   <div class="row justify-content-start">
     <div class="col-12 col-md-8">
       <div class="event event-single">
+        {% if page.image %}
+        <div class="event-image mb-4">
+          <img alt="{{ page.title }}" class="img-fluid" src="{{ page.image | relative_url }}" />
+        </div>
+        {% endif %}
         <h1 class="title">{{page.title}}</h1>
+        {% if page.date %}
+        <p class="event-date"><strong>{{ page.date | date: "%B %d, %Y" }}</strong></p>
+        {% endif %}
         <div class="content">{{content}}</div>
       </div>
     </div>
