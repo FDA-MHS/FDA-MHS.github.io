@@ -20,14 +20,14 @@ bodyClass: "page-events"
 
 <div class="container pt-6 pb-6">
   {% assign now = 'now' | date: '%s' %}
-  {% assign events_with_date = site.events | where_exp: "event", "event.date" | sort: 'date' | reverse %}
-  {% assign events_without_date = site.events | where_exp: "event", "event.date == nil" %}
+  {% assign events_with_date = site.events | where_exp: "event", "event.event_date" | sort: 'event_date' | reverse %}
+  {% assign events_without_date = site.events | where_exp: "event", "event.event_date == nil or event.event_date == ''" %}
   
   {% assign filtered_future = "" | split: "" %}
   {% assign filtered_past = "" | split: "" %}
   
   {% for event in events_with_date %}
-    {% assign event_date = event.date | date: '%s' %}
+    {% assign event_date = event.event_date | date: '%s' %}
     {% if event_date >= now %}
       {% assign filtered_future = filtered_future | push: event %}
     {% else %}
@@ -77,8 +77,8 @@ bodyClass: "page-events"
           <h2 class="event-title">
             <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
           </h2>
-          {% if event.date %}
-          <p class="event-date"><strong>{{ event.date | date: "%B %d, %Y" }}</strong></p>
+          {% if event.event_date %}
+          <p class="event-date"><strong>{{ event.event_date | date: "%B %d, %Y" }}</strong></p>
           {% endif %}
           <p>{{ event.excerpt | markdownify | strip_html | truncate: 100 }}</p>
         </div>
@@ -105,8 +105,8 @@ bodyClass: "page-events"
           <h2 class="event-title">
             <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
           </h2>
-          {% if event.date %}
-          <p class="event-date"><strong>{{ event.date | date: "%B %d, %Y" }}</strong></p>
+          {% if event.event_date %}
+          <p class="event-date"><strong>{{ event.event_date | date: "%B %d, %Y" }}</strong></p>
           {% endif %}
           <p>{{ event.excerpt | markdownify | strip_html | truncate: 100 }}</p>
         </div>
