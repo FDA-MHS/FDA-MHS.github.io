@@ -1,42 +1,34 @@
-baseurl: '/'
-permalink: pretty
-title: 'FDA MHS'
-
+plugins:
+  - jekyll-environment-variables
 logo:
-  mobile: "images/logo-mobile.svg"
-  mobile_height: "32px"
-  mobile_width: "32px"
-  desktop: "images/logo.svg"
-  desktop_height: "32px"
-  desktop_width: "120px"
-
-home: 
-  limit_events: 6
-
+  mobile: /images/club_logo.png
+  mobile_height: 32px
+  mobile_width: 32px
+  desktop: /images/logo.png
+  desktop_height: 32px
+  desktop_width: 176px
+permalink: pretty
+sass:
+  style: compressed
+url: https://fda-mhs.github.io
+remote_theme: zerostaticthemes/jekyll-serif-theme
+defaults:
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: event
+  - scope:
+      path: ""
+      type: members
+    values:
+      layout: member
 collections:
   events:
     output: true
   members:
     output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: "events"
-    values:
-      layout: "event"
-  - scope:
-      path: ""
-      type: "members"
-    values:
-      layout: "member"
-
-sass:
-  style: compressed # possible values: nested expanded compact compressed
-
-plugins:
-  - jekyll-environment-variables
-
+title: FDA MHS
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -48,6 +40,6 @@ exclude:
   - LICENSE.md
   - LICENSE
   - README.md
-
-url: "https://fda-mhs.github.io" 
-remote_theme: zerostaticthemes/jekyll-serif-theme
+baseurl: /
+home:
+  limit_events: 6
