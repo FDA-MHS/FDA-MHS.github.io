@@ -1,6 +1,5 @@
 ---
 title: Mr. Stewart
-date: ""
 image: /images/mrstewart.png
 jobtitle: Sponsor of FDA
 email: Stewartw@fccps.org

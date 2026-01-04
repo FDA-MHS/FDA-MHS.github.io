@@ -29,7 +29,7 @@ collections:
   # MEMBERS (collection pages)
   # ---------------------------
   - name: "members"
-    label: "CLub Members"
+    label: "Club Members"
     folder: "_members"
     create: true
     delete: true
@@ -38,7 +38,6 @@ collections:
       preview: false
     fields:
       - { label: "Name", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", required: false }
       - { label: "Profile Image", name: "image", widget: "image", required: false }
       - { label: "Job Title", name: "jobtitle", widget: "string", required: false }
       - { label: "Email", name: "email", widget: "string", required: false }
