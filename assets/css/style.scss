@@ -107,6 +107,8 @@ $sub-footer-text-color: $white;
 @import "pages/page-members";
 @import "pages/page-event";
 
+@import "_hero-parallax.scss";
+
 body {
   font-size: 16px;
   line-height: 1.2;

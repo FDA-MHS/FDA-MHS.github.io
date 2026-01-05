@@ -1,2 +1,15 @@
 .page-home {
+  .home-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px; 
+    
+    p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
 }

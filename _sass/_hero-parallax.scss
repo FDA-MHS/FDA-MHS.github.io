@@ -1,0 +1,62 @@
+.hero-parallax {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--bg-image);
+    will-change: transform;
+    transform: translate3d(0, calc(var(--scroll, 0) * 0.5px), 0);
+    backface-visibility: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: 20px;
+    margin-left: 33.33%;
+    transform: translateX(-50%) translateZ(0);
+    backface-visibility: hidden;
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.2;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  // Size variations
+  &.hero-parallax-small { height: 40vh; min-height: 300px; }
+  &.hero-parallax-large { 
+    height: 100vh;
+    
+    .hero-title {
+      color: $primary;
+    }
+  }
+
+  // Alignment variations
+  &.hero-parallax-align-center {
+    justify-content: center;
+    .hero-content { margin-left: 0; transform: translateX(0) translateZ(0); text-align: center; }
+  }
+
+  &.hero-parallax-align-third {
+    justify-content: flex-start;
+    .hero-content { margin-left: 33.33%; transform: translateX(-50%) translateZ(0); text-align: left; }
+  }
+}

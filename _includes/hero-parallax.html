@@ -1,0 +1,7 @@
+{% if include.image %}
+<div class="hero-parallax {% if include.size %}hero-parallax-{{ include.size }}{% endif %} {% if include.align %}hero-parallax-align-{{ include.align }}{% endif %}" style="--bg-image: url('{{ include.image | relative_url }}');">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ include.title }}</h1>
+  </div>
+</div>
+{% endif %}

@@ -51,8 +51,7 @@ collections:
         fields:
           - { label: "Webpage Title", name: "title", widget: "string" }
           - { label: "Title", name: "description", widget: "text" }
-          - { label: "Intro Image", name: "intro_image", widget: "image", required: false }
-          - { label: "Show Call Box", name: "show_call_box", widget: "boolean", required: false }
+          - { label: "Intro Image", name: "intro_image", widget: "image" }
 
       - file: "about.md"
         label: "About Page"
@@ -76,8 +75,7 @@ collections:
         fields:
           - { label: "Webpage Title", name: "title", widget: "string" }
           - { label: "Title", name: "description", widget: "text" }
-          - { label: "Intro Image", name: "intro_image", widget: "image", required: false }
-          - { label: "Content", name: "body", widget: "markdown" }
+          - { label: "Intro Image", name: "intro_image", widget: "image" }
 
       - file: "events.md"
         label: "Events Page"
@@ -85,8 +83,7 @@ collections:
         fields:
           - { label: "Webpage Title", name: "title", widget: "string" }
           - { label: "Title", name: "description", widget: "text" }
-          - { label: "Intro Image", name: "intro_image", widget: "image", required: false }
-          - { label: "Content", name: "body", widget: "markdown" }
+          - { label: "Intro Image", name: "intro_image", widget: "image" }
 
   - name: "data"
     label: "Site Data"
